@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import data from './card-image.json';
-import Header from './Header';
+import Header from './components/Header';
 
 function App() {
   
