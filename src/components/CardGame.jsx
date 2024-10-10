@@ -18,6 +18,9 @@ export default function CardGame() {
         "https://media4.giphy.com/media/9Xh1CGm4Hzo4g/giphy.mp4?cid=327b8607pi7zjxpxvx1jbfvdxrrk1hys0bhcozvs7thlcn9c&ep=v1_gifs_gifId&rid=giphy.mp4&ct=g",
         "https://media3.giphy.com/media/l3vQXSWNJR84X9di8/giphy.mp4?cid=327b8607naxcz2d9yififk25hsokhuz7uvqx60qqqxqv4pd6&ep=v1_gifs_gifId&rid=giphy.mp4&ct=g"
     ]);
+    const [clickedItems, setClickedItems] = useState([]);
+    const [currentScore, setScore] = useState(0);
+    const [highScore, setHighScore] = useState(0);
 
     // useEffect(() => {
     //     const fetchGifs = async () => {
@@ -59,21 +62,36 @@ export default function CardGame() {
         return newArray; // Return the shuffled copy
     };
 
-    const gameClick = () => {
-        console.log('clicked')
+    const gameClick = (item) => {
+        console.log(item)
         setImgArray(prevArray => shuffleArray(prevArray));
+        if (!clickedItems.includes(item)) {
+            const newArray = clickedItems;
+            newArray.push(item);
+            setClickedItems(newArray)
+            setScore(currentScore + 1)
+        } else {
+            setClickedItems([]);
+            setScore(0);
+        }
     }
+
+    useEffect(() => {
+        if (currentScore > highScore) {
+            setHighScore(currentScore)
+        }
+    }, [currentScore])
 
     return (
         <main>
             <section>
                 <p>Click on a different card each time - can you remember all 12?</p>
-                <p>Current:</p>
-                <p>High:</p>
+                <p>Current: {currentScore}</p>
+                <p>High: {highScore}</p>
             </section>
             {imgArray.map((item, index) => (
                 <section key={item}>
-                        <video src={item} type ='video/mp4' alt={`Card ${index}`} autoPlay loop muted playsInline onClick={() => gameClick()}>Your browser does not support this website</video>
+                        <video src={item} type ='video/mp4' alt={`Card ${index}`} autoPlay loop muted playsInline onClick={() => gameClick(item)}>Your browser does not support this website</video>
                 </section>
             ))}
         </main>
