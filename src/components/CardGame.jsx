@@ -1,5 +1,6 @@
 import data from '../card-image.json';
 import { useState, useEffect } from 'react';
+import '../index.css'
 
 export default function CardGame() {
     const apiKey = import.meta.env.VITE_GIPHY_API_KEY;
@@ -84,16 +85,18 @@ export default function CardGame() {
 
     return (
         <main>
-            <section>
-                <p>Click on a different card each time - can you remember all 12?</p>
-                <p>Current: {currentScore}</p>
-                <p>High: {highScore}</p>
+            <section id='top-section'>
+                <p id='explainer'>Click on a different card each time - can you remember all 12?</p>
+                <p id='current'>Current: {currentScore}</p>
+                <p id='high'>High: {highScore}</p>
             </section>
-            {imgArray.map((item, index) => (
-                <section key={item}>
-                        <video src={item} type ='video/mp4' alt={`Card ${index}`} autoPlay loop muted playsInline onClick={() => gameClick(item)}>Your browser does not support this website</video>
-                </section>
-            ))}
+            <section id='card-section'>
+                {imgArray.map((item, index) => (
+                    <section className='card' key={item}>
+                            <button className='card-button' onClick={() => gameClick(item)}><video src={item} type ='video/mp4' alt={`Card ${index}`} autoPlay loop muted playsInline >Your browser does not support this website</video></button>
+                    </section>
+                ))}
+            </section>
         </main>
     );
 }

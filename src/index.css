@@ -1,0 +1,156 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  max-width: 100%;
+  text-align: center;
+  color: #412517;
+}
+
+.playfair-display-sc-regular {
+  font-family: "Playfair Display SC", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.playfair-display-sc-bold {
+  font-family: "Playfair Display SC", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.playfair-display-sc-black {
+  font-family: "Playfair Display SC", serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.playfair-display-sc-regular-italic {
+  font-family: "Playfair Display SC", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.playfair-display-sc-bold-italic {
+  font-family: "Playfair Display SC", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.playfair-display-sc-black-italic {
+  font-family: "Playfair Display SC", serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  text-align: left;
+  max-width: 2000px;
+  margin: 0 auto;
+  background-color: #f58b57;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  padding-left: 50px;
+  padding-right: 50px;
+  align-items: center;
+}
+
+footer {
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #412517 ;
+  text-shadow: 1px -1px 0 #a75f3b;
+  font-family: "Playfair Display SC",
+    serif;
+  font-weight: 800;
+}
+
+#github-logo {
+  filter: invert(11%) sepia(22%) saturate(2346%) hue-rotate(343deg) brightness(98%) contrast(86%);
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+button:hover {
+  border-radius: 5px;
+  border: 3px solid #7acec2;
+}
+
+#top-section {
+  font-family: "Playfair Display SC", serif;
+  text-align: center;
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr;
+  font-size: 1.5rem;
+}
+
+#explainer {
+  grid-area: 1 / 1 / 2 / 3;
+  margin-bottom: 5px;
+}
+
+#current {
+  grid-area: 2 / 1 / 3 / 2;
+  padding: 0px;
+  margin-top: 5px;
+  margin-right: 5vw;
+  text-align: right;
+}
+
+#high {
+  grid-area: 2 / 2 / 3 / 3;
+  padding: 0px;
+  margin-top: 5px;
+  margin-left: 5vw;
+  text-align: left;
+}
+
+#card-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(auto-fill, 1fr);
+}
+
+video {
+  max-height: 180px;
+}
+
+.card {
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  header {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  #top-section {
+    font-size: 1rem;
+  }
+
+  video {
+    max-width: 25vw;
+  }
+}
